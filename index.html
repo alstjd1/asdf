@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사과 뽑기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #apple-image {
+            display: none;
+            margin-top: 20px;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>사과 뽑기 게임</h1>
+        <p>사과를 뽑으면 사진이 나오는 게임입니다.</p>
+        <button onclick="pickRandomItem()">시작</button>
+        <div id="result"></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/220px-Red_Apple.jpg" id="apple-image">
+</div>
+
+<script>
+    function pickRandomItem() {
+        const items = ["사과", "바나나", "딸기", "수박", "포도", "복숭아"];
+        
+        if (items.length === 0) {
+            alert('항목을 입력하세요.');
+            return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * items.length);
+        const selectedItem = items[randomIndex];
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `선택된 항목: ${selectedItem}`;
+
+        if (selectedItem === '사과') {
+            document.getElementById('apple-image').style.display = 'block';
+        } else {
+            document.getElementById('apple-image').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
